@@ -1,0 +1,11 @@
+﻿Thumbs.db
+desktop.ini
+.DS_Store
+fuentes/
+*.aep
+*.prproj
+*.mov
+*.psd
+*.ai
+.vscode/
+.idea/

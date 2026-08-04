@@ -322,6 +322,64 @@
             .grain-overlay { animation: none; }
         }
 
+        /* ── NAV MOBILE ── */
+        #nav-burger { display: none; }
+        #lang-toggle-m { display: none; }
+        #nav-scrim { display: none; }
+
+        @media (max-width: 780px) {
+            #lang-toggle-m { display: inline-flex; }
+            #nav-burger {
+                position: fixed; top: 24px; right: 22px; z-index: 130;
+                display: flex; flex-direction: column; justify-content: center;
+                gap: 5px; width: 30px; height: 30px;
+                background: none; border: 0; cursor: pointer; padding: 0;
+            }
+            #nav-burger span {
+                display: block; width: 22px; height: 1px;
+                background: rgba(255,255,255,.75);
+                transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s ease;
+            }
+            #nav-burger.open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+            #nav-burger.open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+
+            #nav-scrim {
+                display: block; position: fixed; inset: 0; z-index: 118;
+                background: rgba(10,10,10,.6);
+                backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+                opacity: 0; pointer-events: none; transition: opacity .4s ease;
+            }
+            #nav-scrim.open { opacity: 1; pointer-events: auto; }
+
+            #main-nav {
+                position: fixed; top: 0; right: 0; left: auto;
+                transform: translateX(100%);
+                width: min(74vw, 300px); height: 100vh;
+                flex-direction: column; justify-content: center;
+                align-items: flex-start;
+                gap: 26px; padding: 0 32px;
+                background: #0A0A0A;
+                border-left: 1px solid rgba(255,255,255,.09);
+                z-index: 120;
+                transition: transform .55s cubic-bezier(.22,1,.36,1);
+            }
+            #main-nav.open { transform: translateX(0); }
+            #main-nav .nav-link {
+                font-size: 15px; letter-spacing: .12em; opacity: .55;
+                padding: 4px 0;
+            }
+            #main-nav .nav-link.active { opacity: 1; }
+            #main-nav .nav-link.active::before {
+                content: ''; display: inline-block;
+                width: 14px; height: 1px; background: #C7FF00;
+                vertical-align: middle; margin-right: 9px;
+            }
+            #home-name-btn { top: 22px; left: 22px; }
+            #home-name-btn .hud-row { display: none; }
+            #lang-toggle-m { margin-top: 14px; }
+            #lang-toggle-m span[data-lang] { font-size: 11px; letter-spacing: .2em; }
+        }
+
         .nav-link {
             opacity: 0.4;
             transition: opacity 0.4s ease;
@@ -1940,11 +1998,18 @@
     </div>
 
     <main id="main-content" style="opacity: 0; visibility: hidden;">
-        <nav class="fixed top-8 left-1/2 -translate-x-1/2 flex gap-8 text-[10px] uppercase tracking-[0.2em] z-[100] ">
+        <button id="nav-burger" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span>
+        </button>
+        <div id="nav-scrim"></div>
+        <nav id="main-nav" class="fixed top-8 left-1/2 -translate-x-1/2 flex gap-8 text-[10px] uppercase tracking-[0.2em] z-[100] ">
             <a href="#focus" class="nav-link">Essentials</a>
             <a href="#works" class="nav-link">Works</a>
             <a href="#synthetics" class="nav-link">Motion</a>
             <a href="#connect" class="nav-link">Connect</a>
+            <button id="lang-toggle-m" class="lang-toggle" aria-label="Language">
+                <span data-lang="en" class="on">EN</span><span class="lang-sep">/</span><span data-lang="es">ES</span>
+            </button>
         </nav>
         <button id="home-name-btn" class="fixed top-8 left-8 z-[100] flex flex-col items-start"
             style="background:none; border:none; cursor:pointer; padding:0;">
@@ -2417,17 +2482,34 @@
                 else el.innerHTML = o.html;
             });
             if (typeof retranslateKaraoke === 'function') retranslateKaraoke(lang);
-            document.querySelectorAll('#lang-toggle span[data-lang]').forEach(sp => {
+            document.querySelectorAll('#lang-toggle span[data-lang], #lang-toggle-m span[data-lang]').forEach(sp => {
                 sp.classList.toggle('on', sp.dataset.lang === lang);
             });
         }
 
+        function initMobileNav() {
+            const b = document.getElementById('nav-burger');
+            const n = document.getElementById('main-nav');
+            const sc = document.getElementById('nav-scrim');
+            if (!b || !n) return;
+            const set = open => {
+                b.classList.toggle('open', open);
+                n.classList.toggle('open', open);
+                if (sc) sc.classList.toggle('open', open);
+                b.setAttribute('aria-expanded', open ? 'true' : 'false');
+            };
+            b.addEventListener('click', () => set(!n.classList.contains('open')));
+            if (sc) sc.addEventListener('click', () => set(false));
+            n.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => set(false)));
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+        }
+
         function initLangToggle() {
-            const btn = document.getElementById('lang-toggle');
-            if (!btn) return;
-            btn.addEventListener('click', () => {
-                applyLang(CURRENT_LANG === 'en' ? 'es' : 'en');
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            document.querySelectorAll('#lang-toggle, #lang-toggle-m').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    applyLang(CURRENT_LANG === 'en' ? 'es' : 'en');
+                    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+                });
             });
         }
 
@@ -2678,6 +2760,19 @@
                 "tag": "Short-form"
         },
         {
+                "fn": "sf-AuFb0MLKp14",
+                "title": "BC MOTION DESIGN 1",
+                "client": "Personal",
+                "category": "short",
+                "kind": "video",
+                "youtube": "AuFb0MLKp14",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/AuFb0MLKp14/maxresdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Short-form",
+                "show": true
+        },
+        {
                 "fn": "aw-wbV7iUAhUjk",
                 "title": "ART-WORK 01",
                 "client": "Personal",
@@ -2712,6 +2807,19 @@
                 "youtube": "qo2G-pAL3Uw",
                 "ratio": "16-9",
                 "thumb": "https://img.youtube.com/vi/qo2G-pAL3Uw/maxresdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
+        },
+        {
+                "fn": "aw-pSJkmPgJEz4",
+                "title": "ART-WORK 04",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "pSJkmPgJEz4",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/pSJkmPgJEz4/hqdefault.jpg",
                 "platform": "YouTube",
                 "tag": "Art-Work",
                 "show": true
@@ -4159,6 +4267,7 @@
         document.getElementById('home-video').load();
         loadProjects();
         initLangToggle();
+        initMobileNav();
         bpLoader.start();
 
         /* ── intro video buffering drives the SYS counter ── */
@@ -4293,6 +4402,7 @@
                 const thumb = project.thumb || project.image || '';
                 const fb    = yt ? 'https://img.youtube.com/vi/' + yt + '/maxresdefault.jpg' : '';
                 const fb2   = yt ? 'https://img.youtube.com/vi/' + yt + '/hqdefault.jpg' : '';
+                const fb3   = yt ? 'https://img.youtube.com/vi/' + yt + '/sddefault.jpg' : '';
                 const num   = (index + 1).toString().padStart(2, '0');
 
                 let head = '';
@@ -4335,7 +4445,7 @@
             </div>
             <div class="wc-media">
                 <img src="${thumb}" alt="${project.title}" loading="lazy"
-                     ${fb ? `onerror="if(!this.dataset.t){this.dataset.t=1;this.src='${fb}'}else{this.onerror=null;this.src='${fb2}'}"` : ''}>
+                     ${fb ? `onerror="this.dataset.t=(+this.dataset.t||0)+1;this.src=this.dataset.t==1?'${fb2}':this.dataset.t==2?'${fb3}':(this.onerror=null,'${fb2}')"` : ''}>
                 ${isVid ? '<button class="wc-play" aria-label="Reproducir"><span>&#9654;</span></button>' : ''}
                 ${project.slides ? `<div class="wc-dots">${project.slides.map((_, k) => `<i class="${k === 0 ? 'on' : ''}"></i>`).join('')}</div>` : ''}
             </div>

@@ -322,6 +322,81 @@
             .grain-overlay { animation: none; }
         }
 
+
+        /* ═══════════════════════════════════════════════
+           RESPONSIVE — Android 360px, tablets y touch
+           ═══════════════════════════════════════════════ */
+
+        /* nada puede desbordar a lo ancho */
+        html, body { max-width: 100%; overflow-x: hidden; }
+        img, video, canvas, iframe { max-width: 100%; }
+
+        /* la fila de filtros: 7 botones no entran en 360px */
+        @media (max-width: 780px) {
+            #work-filter {
+                flex-wrap: wrap; justify-content: center;
+                gap: 10px !important; margin-bottom: 28px; padding-top: 24px;
+            }
+            #work-filter > div { flex-wrap: wrap; justify-content: center; gap: 8px !important; }
+            .filter-btn { font-size: 9px; padding: 6px 11px; }
+            #filter-count { width: 100%; text-align: center; margin: 2px 0 0; }
+        }
+
+        /* ── TOUCH: sin hover, todo lo que dependía de él debe verse ── */
+        @media (hover: none) {
+            .wc-play  { opacity: 1 !important; }
+            .wc-play span { background: rgba(10,10,10,.72); }
+            .wc-ext   { opacity: .85 !important; }
+            .wc-media img { opacity: .95; filter: saturate(1); }
+            .wc-title { color: rgba(255,255,255,.9); }
+            .wc-rule  { width: 34px; }
+            .wl-title { color: rgba(255,255,255,.72); }
+            .wl-meta i { color: #C7FF00; }
+            .wc:hover { transform: none; }
+            .wc-dots i { width: 5px; height: 5px; }
+        }
+
+        /* ── celulares angostos (Samsung / Xiaomi / Motorola: 360px) ── */
+        @media (max-width: 640px) {
+            section { padding-left: 20px !important; padding-right: 20px !important; }
+            #workshere { gap: 8px; }
+            .wc-info { padding: 7px 7px 9px; }
+            .wc-top  { padding: 6px 7px 5px; }
+            .wc-group-title { font-size: 11px; letter-spacing: .12em; }
+            .wc-group-desc  { font-size: 10px; }
+            .wl { gap: 12px; padding: 15px 2px; }
+            .wl-title { font-size: 17px; }
+            .wl-meta  { font-size: 8px; letter-spacing: .12em; }
+            #works { padding-bottom: 16vh; }
+            .type-hero { word-break: normal; overflow-wrap: break-word; hyphens: none; }
+        }
+
+        /* ── tablets: 2 cards por fila desperdiciaba el ancho ── */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            section { padding-left: 44px !important; padding-right: 44px !important; }
+            #workshere { grid-template-columns: repeat(12, 1fr); gap: 12px; }
+            .wc { grid-column: span 4; }                       /* 3 por fila */
+            .wc[data-ratio="16-9"] { grid-column: span 6; }    /* 2 por fila */
+            .wc[data-ratio="4-5"]  { grid-column: span 4; }
+        }
+
+        /* ── muy angostos (360px y menos) ── */
+        @media (max-width: 400px) {
+            #workshere { grid-template-columns: repeat(10, 1fr); }
+            .wc { grid-column: span 5; }
+            .wc[data-ratio="16-9"] { grid-column: span 10; }
+            .wc-title { font-size: 9px; }
+            .wc-sub   { font-size: 7.5px; letter-spacing: .12em; }
+            .wl-title { font-size: 15px; }
+            #home-name-btn span:first-child { font-size: 9px; letter-spacing: .16em; }
+        }
+
+        /* ── landscape en celular: alturas de 100vh no sirven ── */
+        @media (max-height: 480px) and (orientation: landscape) {
+            #works { padding-bottom: 14vh; }
+            .wc-group { margin: 22px 0 4px; }
+        }
+
         /* ── NAV MOBILE ── */
         #nav-burger { display: none; }
         #lang-toggle-m { display: none; }
@@ -456,6 +531,26 @@
         .lang-toggle span[data-lang].on { color: #C7FF00; }
         .lang-toggle:hover span[data-lang]:not(.on) { color: rgba(255,255,255,.6); }
         .lang-sep { font-size: 9px; color: rgba(255,255,255,.16); }
+
+        .connect-alt {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; margin-top: 22px;
+        }
+        .connect-alt-or {
+            font-family: var(--font-mono), monospace;
+            font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+            opacity: .35;
+        }
+        .connect-mail {
+            font-family: var(--font-mono), monospace;
+            font-size: 14px; letter-spacing: .04em;
+            color: rgba(255,255,255,.62); text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,.18);
+            padding-bottom: 2px;
+            transition: color .35s ease, border-color .35s ease;
+        }
+        .connect-mail:hover { color: #C7FF00; border-color: rgba(199,255,0,.6); }
+        @media (max-width: 640px) { .connect-mail { font-size: 12px; } .connect-alt-or { font-size: 9px; } }
 
         .cta-via {
             font-style: normal; font-family: var(--font-mono), monospace;
@@ -2298,7 +2393,7 @@
         </div>
 
         <div id="connect-transition-trigger" style="height: 150vh;"></div>
-        <section id="connect" class="flex flex-col items-center justify-center text-center section-fade-bg" data-bg-opacity="0.5">
+        <section id="connect" class="flex flex-col items-center justify-center text-center px-6 md:px-24 section-fade-bg" data-bg-opacity="0.5">
 
             <div class="z-10">
                 <h1 class="type-hero" id="connect-title">
@@ -2323,6 +2418,11 @@
                             class="absolute inset-0 bg-[#C7FF00] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
                         </div>
                     </a>
+                </div>
+
+                <div class="connect-alt">
+                    <span class="connect-alt-or">or</span>
+                    <a href="mailto:piccolimaximo@gmail.com?subject=Proyecto%20%E2%80%94%20desde%20tu%20portfolio&body=Hola%20M%C3%A1ximo%2C%0A%0AVi%20tu%20portfolio%20y%20me%20gustar%C3%ADa%20hablar%20de%20un%20proyecto.%0A%0AQu%C3%A9%20necesito%3A%0APlazo%3A%0APresupuesto%20aproximado%3A%0A%0ASaludos%2C" class="connect-mail">piccolimaximo@gmail.com</a>
                 </div>
             </div>
         </section>
@@ -2439,6 +2539,7 @@
         "Let's Connect via WhatsApp": "Hablemos por WhatsApp",
         "via WhatsApp": "por WhatsApp",
         "View": "Ver",
+        "or": "o",
         "For 21 Studios clients": "Para clientes de 21 Studios",
         "Anyone can be fast.Few are fast on purpose.": "Cualquiera puede ser rápido.<br>Pocos lo son a propósito.",
         "Nine years editing. Six of them professionally, for brands that count the results. Script, motion, interface and code — one operator, from the idea to the shipped file. Based in Argentina, working worldwide.": "Nueve años editando. Seis de ellos profesionalmente, para marcas que miden resultados.<br>Guion, motion, interfaz y código — una sola persona, de la idea al archivo final.<br>Desde Argentina, trabajando para todo el mundo.",

@@ -241,7 +241,7 @@
 
         .filter-btn.is-soon { opacity: .35; }
         .filter-btn.is-soon em {
-            font-style: normal; font-size: 6px; letter-spacing: .22em;
+            font-style: normal; font-size: 9px; letter-spacing: .22em;
             color: #C7FF00; margin-left: 5px; vertical-align: super;
         }
         .work-hidden { display: none !important; }
@@ -338,7 +338,7 @@
                 gap: 10px !important; margin-bottom: 28px; padding-top: 24px;
             }
             #work-filter > div { flex-wrap: wrap; justify-content: center; gap: 8px !important; }
-            .filter-btn { font-size: 9px; padding: 6px 11px; }
+            .filter-btn { font-size: 11px; padding: 8px 15px; }
             #filter-count { width: 100%; text-align: center; margin: 2px 0 0; }
         }
 
@@ -907,14 +907,14 @@
         /* Work filter */
         .filter-btn {
             font-family: var(--font-mono);
-            font-size: 9px;
+            font-size: 14px;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.35);
             background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 999px;
-            padding: 6px 16px;
+            padding: 11px 26px;
             cursor: pointer;
             transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
@@ -2328,13 +2328,13 @@
             </div>
 
             <div class="flex justify-center w-full  border-t border-white/10">
-                <div id="work-filter" class="flex items-center gap-6 mb-10 pt-8">
-                    <span class="type-caption opacity-40">Filter</span>
-                    <div class="flex items-center gap-3">
+                <div id="work-filter" class="flex items-center gap-8 mb-14 pt-10">
+                    <span class="type-caption opacity-40" style="font-size:12px">Filter</span>
+                    <div class="flex items-center gap-4">
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="short">Short-form</button>
-                        <button class="filter-btn" data-filter="art">Art-Work</button>
                         <button class="filter-btn" data-filter="large">Large</button>
+                        <button class="filter-btn" data-filter="art">Art-Work</button>
                         <button class="filter-btn" data-filter="uxui">UX/UI</button>
                         <button class="filter-btn" data-filter="design">Designs</button>
                         <button class="filter-btn is-soon" data-filter="motion"><span>Motion GFX</span> <em>soon</em></button>
@@ -2616,8 +2616,8 @@
 
         const GROUPS = {
             short:  { label: 'Short-form',  desc: 'Vertical reels and ads. Script, edit and motion.' },
-            art:    { label: 'Art-Work',    desc: 'Personal pieces. Visual exploration, no brief.' },
             large:  { label: 'Large / VSL', desc: 'Sales videos and long-form content for YouTube.' },
+            art:    { label: 'Art-Work',    desc: 'Personal pieces. Visual exploration, no brief.' },
             uxui:   { label: 'UX/UI',       desc: 'Interfaces and sites designed from scratch.' },
             design: { label: 'Designs',     desc: 'Carousels, identity and graphic systems. Click the dotted ones to swipe through the slides.' }
         };
@@ -2666,17 +2666,17 @@
                 "show": true
         },
         {
-                "fn": "sf-3OccDNmHNk8",
-                "title": "REEL MARCOS 1 MIAMI",
+                "fn": "sf-WMVyh56Y7Fg",
+                "title": "NIURKYS CREDITO AD14",
                 "client": "For 21 Studios clients",
                 "category": "short",
                 "kind": "video",
-                "youtube": "3OccDNmHNk8",
+                "youtube": "WMVyh56Y7Fg",
                 "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/3OccDNmHNk8/maxresdefault.jpg",
-                "show": true,
+                "thumb": "https://img.youtube.com/vi/WMVyh56Y7Fg/maxresdefault.jpg?rev=3",
                 "platform": "YouTube",
-                "tag": "Short-form"
+                "tag": "Short-form",
+                "show": true
         },
         {
                 "fn": "sf-wqzQdTJdakQ",
@@ -2686,176 +2686,7 @@
                 "kind": "video",
                 "youtube": "wqzQdTJdakQ",
                 "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/wqzQdTJdakQ/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-YvpnkjcxQhM",
-                "title": "ProCraft Wilimington",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "YvpnkjcxQhM",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/YvpnkjcxQhM/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf--Pxcq09kurw",
-                "title": "NIURKYS AD REELS ABRIL",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "-Pxcq09kurw",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/-Pxcq09kurw/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-gpmgaby1fJY",
-                "title": "NIURKYS AD REELS ABR2026",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "gpmgaby1fJY",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/gpmgaby1fJY/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-icZU261olqk",
-                "title": "REEL VOLKSWAGEN TCROSS",
-                "client": "Volkswagen - Repanic",
-                "category": "short",
-                "kind": "video",
-                "youtube": "icZU261olqk",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/icZU261olqk/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-xdoatmj0dAo",
-                "title": "REEL 00 MAR2026 NIURKYS",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "xdoatmj0dAo",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/xdoatmj0dAo/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-lJ9EX7L-e2Q",
-                "title": "NIURKYS CREDITO 4",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "lJ9EX7L-e2Q",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/lJ9EX7L-e2Q/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-jSIH-ij9uKM",
-                "title": "REEL 4 PAOLA BERMUDEZ",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "jSIH-ij9uKM",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/jSIH-ij9uKM/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-dzrmKgI5Cwk",
-                "title": "29V2 CLIPPING MARCOS MAR26",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "dzrmKgI5Cwk",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/dzrmKgI5Cwk/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-htTEu88YBto",
-                "title": "IDEALMNG",
-                "client": "For 21 Studios clients",
-                "category": "short",
-                "kind": "video",
-                "youtube": "htTEu88YBto",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/htTEu88YBto/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-ESkidry8448",
-                "title": "NIVUS REEL AD VENTA",
-                "client": "Volkswagen - Repanic",
-                "category": "short",
-                "kind": "video",
-                "youtube": "ESkidry8448",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/ESkidry8448/maxresdefault.jpg",
-                "show": true,
-                "platform": "YouTube",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-LLvnU6PHf9o",
-                "title": "FLYMOTION AD2 / LUZERNER",
-                "client": "FlyMotion",
-                "category": "short",
-                "kind": "video",
-                "youtube": "LLvnU6PHf9o",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/LLvnU6PHf9o/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-Wd1nuuXdHeE",
-                "title": "VP GYM AD3",
-                "client": "VP Gym",
-                "category": "short",
-                "kind": "video",
-                "youtube": "Wd1nuuXdHeE",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/Wd1nuuXdHeE/maxresdefault.jpg",
-                "show": true,
-                "platform": "Instagram",
-                "tag": "Short-form"
-        },
-        {
-                "fn": "sf-sfWL6IY6DmA",
-                "title": "VOLKSWAGEN VENTA INSTITUCIONAL",
-                "client": "Volkswagen",
-                "category": "short",
-                "kind": "video",
-                "youtube": "sfWL6IY6DmA",
-                "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/sfWL6IY6DmA/maxresdefault.jpg",
+                "thumb": "https://img.youtube.com/vi/wqzQdTJdakQ/maxresdefault.jpg?rev=3",
                 "show": true,
                 "platform": "Instagram",
                 "tag": "Short-form"
@@ -2868,62 +2699,205 @@
                 "kind": "video",
                 "youtube": "AuFb0MLKp14",
                 "ratio": "9-16",
-                "thumb": "https://img.youtube.com/vi/AuFb0MLKp14/maxresdefault.jpg",
+                "thumb": "https://img.youtube.com/vi/AuFb0MLKp14/maxresdefault.jpg?rev=3",
                 "platform": "YouTube",
                 "tag": "Short-form",
                 "show": true
         },
         {
-                "fn": "aw-wbV7iUAhUjk",
-                "title": "ART-WORK 01",
-                "client": "Personal",
-                "category": "art",
+                "fn": "sf--Pxcq09kurw",
+                "title": "NIURKYS AD REELS ABRIL",
+                "client": "For 21 Studios clients",
+                "category": "short",
                 "kind": "video",
-                "youtube": "wbV7iUAhUjk",
-                "ratio": "16-9",
-                "thumb": "https://img.youtube.com/vi/wbV7iUAhUjk/maxresdefault.jpg",
+                "youtube": "-Pxcq09kurw",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/-Pxcq09kurw/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-gpmgaby1fJY",
+                "title": "NIURKYS AD REELS ABR2026",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "gpmgaby1fJY",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/gpmgaby1fJY/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-icZU261olqk",
+                "title": "REEL VOLKSWAGEN TCROSS",
+                "client": "Volkswagen - Repanic",
+                "category": "short",
+                "kind": "video",
+                "youtube": "icZU261olqk",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/icZU261olqk/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-YvpnkjcxQhM",
+                "title": "ProCraft Wilimington",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "YvpnkjcxQhM",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/YvpnkjcxQhM/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-lJ9EX7L-e2Q",
+                "title": "NIURKYS CREDITO 4",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "lJ9EX7L-e2Q",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/lJ9EX7L-e2Q/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-ru7Q4EioRUg",
+                "title": "NIURKYS CREDITO AD12",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "ru7Q4EioRUg",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/ru7Q4EioRUg/maxresdefault.jpg?rev=3",
                 "platform": "YouTube",
-                "tag": "Art-Work",
+                "tag": "Short-form",
                 "show": true
         },
         {
-                "fn": "aw-TBzlB2LboY8",
-                "title": "ART-WORK 02",
-                "client": "Personal",
-                "category": "art",
+                "fn": "sf-3OccDNmHNk8",
+                "title": "REEL MARCOS 1 MIAMI",
+                "client": "For 21 Studios clients",
+                "category": "short",
                 "kind": "video",
-                "youtube": "TBzlB2LboY8",
-                "ratio": "16-9",
-                "thumb": "https://img.youtube.com/vi/TBzlB2LboY8/maxresdefault.jpg",
+                "youtube": "3OccDNmHNk8",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/3OccDNmHNk8/maxresdefault.jpg?rev=3",
+                "show": true,
                 "platform": "YouTube",
-                "tag": "Art-Work",
-                "show": true
+                "tag": "Short-form"
         },
         {
-                "fn": "aw-qo2G-pAL3Uw",
-                "title": "ART-WORK 03",
-                "client": "Personal",
-                "category": "art",
+                "fn": "sf-htTEu88YBto",
+                "title": "IDEALMNG",
+                "client": "For 21 Studios clients",
+                "category": "short",
                 "kind": "video",
-                "youtube": "qo2G-pAL3Uw",
-                "ratio": "16-9",
-                "thumb": "https://img.youtube.com/vi/qo2G-pAL3Uw/maxresdefault.jpg",
-                "platform": "YouTube",
-                "tag": "Art-Work",
-                "show": true
+                "youtube": "htTEu88YBto",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/htTEu88YBto/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
         },
         {
-                "fn": "aw-pSJkmPgJEz4",
-                "title": "ART-WORK 04",
-                "client": "Personal",
-                "category": "art",
+                "fn": "sf-ESkidry8448",
+                "title": "NIVUS REEL AD VENTA",
+                "client": "Volkswagen - Repanic",
+                "category": "short",
                 "kind": "video",
-                "youtube": "pSJkmPgJEz4",
-                "ratio": "16-9",
-                "thumb": "https://img.youtube.com/vi/pSJkmPgJEz4/hqdefault.jpg",
+                "youtube": "ESkidry8448",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/ESkidry8448/maxresdefault.jpg?rev=3",
+                "show": true,
                 "platform": "YouTube",
-                "tag": "Art-Work",
-                "show": true
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-LLvnU6PHf9o",
+                "title": "FLYMOTION AD2 / LUZERNER",
+                "client": "FlyMotion",
+                "category": "short",
+                "kind": "video",
+                "youtube": "LLvnU6PHf9o",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/LLvnU6PHf9o/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-Wd1nuuXdHeE",
+                "title": "VP GYM AD3",
+                "client": "VP Gym",
+                "category": "short",
+                "kind": "video",
+                "youtube": "Wd1nuuXdHeE",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/Wd1nuuXdHeE/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-jSIH-ij9uKM",
+                "title": "REEL 4 PAOLA BERMUDEZ",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "jSIH-ij9uKM",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/jSIH-ij9uKM/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-sfWL6IY6DmA",
+                "title": "VOLKSWAGEN VENTA INSTITUCIONAL",
+                "client": "Volkswagen",
+                "category": "short",
+                "kind": "video",
+                "youtube": "sfWL6IY6DmA",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/sfWL6IY6DmA/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-xdoatmj0dAo",
+                "title": "REEL 00 MAR2026 NIURKYS",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "xdoatmj0dAo",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/xdoatmj0dAo/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
+        },
+        {
+                "fn": "sf-dzrmKgI5Cwk",
+                "title": "29V2 CLIPPING MARCOS MAR26",
+                "client": "For 21 Studios clients",
+                "category": "short",
+                "kind": "video",
+                "youtube": "dzrmKgI5Cwk",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/dzrmKgI5Cwk/maxresdefault.jpg?rev=3",
+                "show": true,
+                "platform": "Instagram",
+                "tag": "Short-form"
         },
         {
                 "fn": "lg-8atxqhoMBoE",
@@ -2976,6 +2950,58 @@
                 "show": true,
                 "platform": "YouTube",
                 "tag": "VSL / YouTube"
+        },
+        {
+                "fn": "aw-wbV7iUAhUjk",
+                "title": "ART-WORK 01",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "wbV7iUAhUjk",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/wbV7iUAhUjk/maxresdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
+        },
+        {
+                "fn": "aw-TBzlB2LboY8",
+                "title": "ART-WORK 02",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "TBzlB2LboY8",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/TBzlB2LboY8/maxresdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
+        },
+        {
+                "fn": "aw-qo2G-pAL3Uw",
+                "title": "ART-WORK 03",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "qo2G-pAL3Uw",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/qo2G-pAL3Uw/maxresdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
+        },
+        {
+                "fn": "aw-pSJkmPgJEz4",
+                "title": "ART-WORK 04",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "pSJkmPgJEz4",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/pSJkmPgJEz4/hqdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
         },
         {
                 "fn": "dz-trump",
@@ -4501,9 +4527,10 @@
                 const isVid = project.kind === 'video';
                 const yt    = project.youtube || '';
                 const thumb = project.thumb || project.image || '';
-                const fb    = yt ? 'https://img.youtube.com/vi/' + yt + '/maxresdefault.jpg' : '';
-                const fb2   = yt ? 'https://img.youtube.com/vi/' + yt + '/hqdefault.jpg' : '';
-                const fb3   = yt ? 'https://img.youtube.com/vi/' + yt + '/sddefault.jpg' : '';
+                const REV   = 3;   // subilo cuando cambies miniaturas en YouTube
+                const fb    = yt ? 'https://img.youtube.com/vi/' + yt + '/maxresdefault.jpg?rev=' + REV : '';
+                const fb2   = yt ? 'https://img.youtube.com/vi/' + yt + '/hqdefault.jpg?rev=' + REV : '';
+                const fb3   = yt ? 'https://img.youtube.com/vi/' + yt + '/sddefault.jpg?rev=' + REV : '';
                 const num   = (index + 1).toString().padStart(2, '0');
 
                 let head = '';

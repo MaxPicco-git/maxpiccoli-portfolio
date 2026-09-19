@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Máximo Piccoli · Ximo | Editor & Motion Designer</title>
     <meta name="description"
-        content="Video editing, motion design, UX/UI and branding. Nine years editing, six of them professionally. Agencies take weeks — I deliver in days." />
+        content="Creative partner, not a vendor. Strategy, script, motion, design and code — one person accountable for the whole brand." />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Máximo Piccoli · Ximo" />
     <meta property="og:description"
-        content="Video editing, motion design, UX/UI and branding. One operator, from the idea to the shipped file." />
+        content="Not just a designer. A creative partner." />
     <meta property="og:image" content="./assets/works-high-res.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/png" href="./favicon/favicon.png" />
@@ -69,7 +69,7 @@
 
         /* respiro para que la ultima fila de cards se termine de ver
            antes de que arranque el scrub de la seccion siguiente */
-        #works { padding-bottom: 26vh; }
+        #works { padding-bottom: 20vh; }
 
         /* ── WORK CARDS GRID ── */
         #workshere {
@@ -2098,8 +2098,8 @@
         </button>
         <div id="nav-scrim"></div>
         <nav id="main-nav" class="fixed top-8 left-1/2 -translate-x-1/2 flex gap-8 text-[10px] uppercase tracking-[0.2em] z-[100] ">
-            <a href="#focus" class="nav-link">Essentials</a>
             <a href="#works" class="nav-link">Works</a>
+            <a href="#focus" class="nav-link">Essentials</a>
             <a href="#synthetics" class="nav-link">Motion</a>
             <a href="#connect" class="nav-link">Connect</a>
             <button id="lang-toggle-m" class="lang-toggle" aria-label="Language">
@@ -2140,15 +2140,15 @@
             <div class="z-10 mb-12">
                 <h1 class="type-hero" id="hero-title">
                     <span class="block overflow-hidden">
-                        <span class="line-internal block">Anyone can be fast.<br>Few are fast on purpose.</span>
+                        <span class="line-internal block">Not just a designer.<br>A creative partner.</span>
                     </span>
                 </h1>
 
                 <div class="block overflow-hidden mt-6">
                     <p class="line-internal text-sm opacity-50 max-w-xl font-light leading-relaxed">
-                        Nine years editing. Six of them professionally, for brands that count the results.
-                        <br>Script, motion, interface and code — one operator, from the idea to the shipped file.
-                        <br>Based in Argentina, working worldwide.
+                        Most brands assemble a team: one for strategy, one for the edit, one for design, one for the site.
+                        <br>Four calendars, four invoices, four versions of the same brand. I'm all of it.
+                        <br>Script, motion, design, interface and code — nine years editing, six of them professionally.
                     </p>
                 </div>
             </div>
@@ -2182,6 +2182,56 @@
 
         <div id="focus-transition-trigger" style="height: 150vh;"></div>
         <!-- SECTION 02: ESSENTIALS -->
+        <section id="works" class="py-32 flex flex-col px-6 md:px-24 section-fade-bg" data-bg-opacity="0.8">
+
+            <div class="z-10 w-full  mb-16">
+                <span class="type-section-label block mb-8">Works</span>
+                <h1 class="type-display mb-8">
+                    <span class="block overflow-hidden"><span class="line-internal block">Featured Works</span></span>
+                </h1>
+                <p class="type-body focus-body-copy">
+                    Ads that stop the scroll. Interfaces people actually use — for founders, studios and
+                    science-led brands that can’t afford to look amateur. Identities built to survive contact
+                    with the market. Every piece here was written, designed, edited and shipped by one person.</p>
+            </div>
+
+            <!-- WHAT YOU GET -->
+            <div class="mt-32 w-full mb-24">
+                <div class="mb-12">
+                    <h3 class="type-model-heading">What You Actually Get</h3>
+                    <p class="type-model-subhead">One promise: no handoffs. Five ways it gets built.</p>
+                </div>
+
+                <div id="outcomesGrid" class="oc-flex"></div>
+            </div>
+
+            <div class="works-hint">
+                <span class="type-caption">The work is below</span>
+                <span class="works-hint-sub">hover to preview · click to open</span>
+                <span class="works-hint-arrow">↓</span>
+            </div>
+
+            <div class="flex justify-center w-full  border-t border-white/10">
+                <div id="work-filter" class="flex items-center gap-8 mb-14 pt-10">
+                    <span class="type-caption opacity-40" style="font-size:12px">Filter</span>
+                    <div class="flex items-center gap-4">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="short">Short-form</button>
+                        <button class="filter-btn" data-filter="large">Large</button>
+                        <button class="filter-btn" data-filter="art">Art-Work</button>
+                        <button class="filter-btn" data-filter="uxui">UX/UI</button>
+                        <button class="filter-btn" data-filter="design">Designs</button>
+                        <button class="filter-btn is-soon" data-filter="motion"><span>Motion GFX</span> <em>soon</em></button>
+                    </div>
+                    <span id="filter-count" class="type-caption opacity-40 ml-auto"></span>
+                </div>
+            </div>
+
+            <div id="workshere" class="w-full mb-32"></div>
+
+        </section>
+
+        <div id="works-transition-trigger" style="height: 150vh;"></div>
         <section id="focus" class="min-h-screen px-6 md:px-24 py-32 section-fade-bg" data-bg-opacity="0.8">
 
             <div class="z-10 w-full ">
@@ -2297,55 +2347,6 @@
             </div>
         </div>
 
-        <div id="works-transition-trigger" style="height: 150vh;"></div>
-        <section id="works" class="py-32 flex flex-col px-6 md:px-24 section-fade-bg" data-bg-opacity="0.7">
-
-            <div class="z-10 w-full  mb-16">
-                <span class="type-section-label block mb-8">Works</span>
-                <h1 class="type-display mb-8">
-                    <span class="block overflow-hidden"><span class="line-internal block">Featured Works</span></span>
-                </h1>
-                <p class="type-body focus-body-copy">
-                    Ads that stop the scroll. Interfaces people actually use — for founders, studios and
-                    science-led brands that can’t afford to look amateur. Identities built to survive contact
-                    with the market. Every piece here was written, designed, edited and shipped by one person.</p>
-            </div>
-
-            <!-- WHAT YOU GET -->
-            <div class="mt-32 w-full mb-24">
-                <div class="mb-12">
-                    <h3 class="type-model-heading">What You Actually Get</h3>
-                    <p class="type-model-subhead">Five disciplines. One operator. Zero handoffs.</p>
-                </div>
-
-                <div id="outcomesGrid" class="oc-flex"></div>
-            </div>
-
-            <div class="works-hint">
-                <span class="type-caption">The work is below</span>
-                <span class="works-hint-sub">hover to preview · click to open</span>
-                <span class="works-hint-arrow">↓</span>
-            </div>
-
-            <div class="flex justify-center w-full  border-t border-white/10">
-                <div id="work-filter" class="flex items-center gap-8 mb-14 pt-10">
-                    <span class="type-caption opacity-40" style="font-size:12px">Filter</span>
-                    <div class="flex items-center gap-4">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="short">Short-form</button>
-                        <button class="filter-btn" data-filter="large">Large</button>
-                        <button class="filter-btn" data-filter="art">Art-Work</button>
-                        <button class="filter-btn" data-filter="uxui">UX/UI</button>
-                        <button class="filter-btn" data-filter="design">Designs</button>
-                        <button class="filter-btn is-soon" data-filter="motion"><span>Motion GFX</span> <em>soon</em></button>
-                    </div>
-                    <span id="filter-count" class="type-caption opacity-40 ml-auto"></span>
-                </div>
-            </div>
-
-            <div id="workshere" class="w-full mb-32"></div>
-
-        </section>
 
         <div id="synthetics-transition-trigger" style="height: 150vh;"></div>
         <!-- SECTION 04: MOTION -->
@@ -2370,8 +2371,8 @@
                         <div class="md:col-span-5 flex flex-col justify-start">
                             <div class="type-body-accent">
                                 <p>
-                                    Current focus: AI-assisted motion, agentic workflows, and short-form systems built
-                                    to hold a brand’s voice at volume.
+                                    What it buys you: campaign creative and the page behind it, live in days,
+                                    without three vendors arguing over whose file broke.
                                 </p>
                             </div>
                         </div>
@@ -2403,9 +2404,9 @@
 
                 <div class="md:col-span-7 type-body focus-body-copy">
                     <p>
-                        Open for video editing, motion design, UX/UI, branding and full content systems.
+                        Taking on retainers and project work as a creative partner, not a supplier.
                         <Br>
-                        Freelance, retainer or semi-senior in-house. Startups welcome. Based in Argentina, working worldwide.
+                        Founders who want one person accountable for the whole thing. Based in Argentina, working worldwide.
                         <Br>
                     </p>
                 </div>
@@ -2492,7 +2493,6 @@
         "Featured Works": "Trabajos Destacados",
         "Ads that stop the scroll. Interfaces people actually use — for founders, studios and science-led brands that can’t afford to look amateur. Identities built to survive contact with the market. Every piece here was written, designed, edited and shipped by one person.": "Anuncios que frenan el scroll. Interfaces que la gente realmente usa — para fundadores, estudios y marcas técnicas que no pueden darse el lujo de verse amateurs. Identidades hechas para sobrevivir al contacto con el mercado. Cada pieza acá fue escrita, diseñada, editada y publicada por una sola persona.",
         "What You Actually Get": "Lo Que Realmente Te Llevás",
-        "Five disciplines. One operator. Zero handoffs.": "Cinco disciplinas. Una sola persona. Cero intermediarios.",
         "The work is below": "El trabajo está abajo",
         "hover to preview · click to open": "pasá el mouse para ver · clic para abrir",
         "Filter": "Filtrar",
@@ -2504,7 +2504,6 @@
         "Designs": "Diseños",
         "Motion GFX": "Motion GFX",
         "soon": "pronto",
-        "Vertical reels and ads. Script, edit and motion.": "Reels y anuncios verticales. Guion, edición y motion.",
         "Personal pieces. Visual exploration, no brief.": "Piezas propias. Exploración visual, sin brief.",
         "Large / VSL": "Largos / VSL",
         "Sales videos and long-form content for YouTube.": "Videos de venta y formato largo para YouTube.",
@@ -2522,7 +2521,6 @@
         "Generative tools wired into a repeatable pipeline — batching, variations and cleanup handled by the machine so the decisions stay mine.": "Herramientas generativas metidas en un proceso repetible — lotes, variaciones y limpieza los hace la máquina para que las decisiones sigan siendo mías.",
         "Fast Is a System, Not a Shortcut": "Rápido Es un Sistema, No un Atajo",
         "I don’t edit by eye and I don’t prompt and pray. Every project runs through the same pipeline — script, board, generate, cut, ship. That’s why the work lands in days instead of weeks, and why it still looks like it was made on purpose.": "No edito a ojo ni tiro prompts a ver qué sale. Todos los proyectos pasan por el mismo proceso: guion, storyboard, generación, edición, entrega. Por eso el trabajo sale en días en vez de semanas, y por eso sigue viéndose hecho a propósito.",
-        "Current focus: AI-assisted motion, agentic workflows, and short-form systems built to hold a brand’s voice at volume.": "Foco actual: motion asistido por IA, flujos automatizados y sistemas de contenido corto capaces de sostener la voz de una marca a gran escala.",
         "How the Work Gets Made": "Cómo Se Hace el Trabajo",
         "Five steps. Every project. Every time.": "Cinco pasos. Cada proyecto. Siempre.",
         "The Brief": "El Brief",
@@ -2540,12 +2538,14 @@
         "via WhatsApp": "por WhatsApp",
         "View": "Ver",
         "or": "o",
-        "For 21 Studios clients": "Para clientes de 21 Studios",
-        "Anyone can be fast.Few are fast on purpose.": "Cualquiera puede ser rápido.<br>Pocos lo son a propósito.",
-        "Nine years editing. Six of them professionally, for brands that count the results. Script, motion, interface and code — one operator, from the idea to the shipped file. Based in Argentina, working worldwide.": "Nueve años editando. Seis de ellos profesionalmente, para marcas que miden resultados.<br>Guion, motion, interfaz y código — una sola persona, de la idea al archivo final.<br>Desde Argentina, trabajando para todo el mundo.",
-        "Open for video editing, motion design, UX/UI, branding and full content systems. Freelance, retainer or semi-senior in-house. Startups welcome. Based in Argentina, working worldwide.": "Disponible para edición de video, motion design, UX/UI, branding y sistemas de contenido completos.<br>Freelance, por abono o semi-senior in-house. Startups bienvenidas. Desde Argentina, trabajando para todo el mundo.",
+        "Taking on retainers and project work as a creative partner, not a supplier. Founders who want one person accountable for the whole thing. Based in Argentina, working worldwide.": "Tomo abonos y proyectos como socio creativo, no como proveedor.<br>Fundadores que quieren una sola persona responsable de todo. Desde Argentina, trabajando para todo el mundo.",
         "finds the right person": "encuentra a la persona correcta",
-        "Let's Connect": "Hablemos"
+        "Let's Connect": "Hablemos",
+        "One promise: no handoffs. Five ways it gets built.": "Una promesa: cero intermediarios. Cinco formas de construirla.",
+        "What it buys you: campaign creative and the page behind it, live in days, without three vendors arguing over whose file broke.": "Lo que comprás: la creatividad de campaña y la página detrás, online en días, sin tres proveedores discutiendo de quién fue el archivo roto.",
+        "Not just a designer.A creative partner.": "No solo un diseñador.<br>Un socio creativo.",
+        "Most brands assemble a team: one for strategy, one for the edit, one for design, one for the site. Four calendars, four invoices, four versions of the same brand. I'm all of it. Script, motion, design, interface and code — nine years editing, six of them professionally.": "La mayoría de las marcas arma un equipo: uno para estrategia, otro para la edición, otro para diseño, otro para el sitio.<br>Cuatro agendas, cuatro facturas, cuatro versiones de la misma marca. Yo soy todo eso.<br>Guion, motion, diseño, interfaz y código — nueve años editando, seis profesionalmente.",
+        "Vertical reels and ads. Script, edit and motion.": "Reels y anuncios verticales. Guion, edición y motion."
 };
 
         const I18N_SKIP = '#time-display .hud-val, #home-name-btn .hud-val, #home-name-btn span:first-child, ' +
@@ -2626,7 +2626,7 @@
         {
                 "fn": "ux-infumate",
                 "title": "INFUMATE",
-                "client": "Infumate",
+                "client": "",
                 "category": "uxui",
                 "kind": "link",
                 "ratio": "list",
@@ -2640,7 +2640,7 @@
         {
                 "fn": "ux-signature",
                 "title": "SIGNATURE DETAIL",
-                "client": "Signature Car Detailing Agency",
+                "client": "",
                 "category": "uxui",
                 "kind": "link",
                 "ratio": "list",
@@ -2654,7 +2654,7 @@
         {
                 "fn": "ux-neuralis",
                 "title": "NEURALIS TECH",
-                "client": "Neuralis",
+                "client": "",
                 "category": "uxui",
                 "kind": "link",
                 "ratio": "list",
@@ -2668,7 +2668,7 @@
         {
                 "fn": "sf-WMVyh56Y7Fg",
                 "title": "NIURKYS CREDITO AD14",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "WMVyh56Y7Fg",
@@ -2681,7 +2681,7 @@
         {
                 "fn": "sf-wqzQdTJdakQ",
                 "title": "13 MARCOS ABRIL2026",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "wqzQdTJdakQ",
@@ -2707,7 +2707,7 @@
         {
                 "fn": "sf--Pxcq09kurw",
                 "title": "NIURKYS AD REELS ABRIL",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "-Pxcq09kurw",
@@ -2720,7 +2720,7 @@
         {
                 "fn": "sf-gpmgaby1fJY",
                 "title": "NIURKYS AD REELS ABR2026",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "gpmgaby1fJY",
@@ -2733,7 +2733,7 @@
         {
                 "fn": "sf-icZU261olqk",
                 "title": "REEL VOLKSWAGEN TCROSS",
-                "client": "Volkswagen - Repanic",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "icZU261olqk",
@@ -2746,7 +2746,7 @@
         {
                 "fn": "sf-YvpnkjcxQhM",
                 "title": "ProCraft Wilimington",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "YvpnkjcxQhM",
@@ -2759,7 +2759,7 @@
         {
                 "fn": "sf-lJ9EX7L-e2Q",
                 "title": "NIURKYS CREDITO 4",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "lJ9EX7L-e2Q",
@@ -2772,7 +2772,7 @@
         {
                 "fn": "sf-ru7Q4EioRUg",
                 "title": "NIURKYS CREDITO AD12",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "ru7Q4EioRUg",
@@ -2785,7 +2785,7 @@
         {
                 "fn": "sf-3OccDNmHNk8",
                 "title": "REEL MARCOS 1 MIAMI",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "3OccDNmHNk8",
@@ -2798,7 +2798,7 @@
         {
                 "fn": "sf-htTEu88YBto",
                 "title": "IDEALMNG",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "htTEu88YBto",
@@ -2811,7 +2811,7 @@
         {
                 "fn": "sf-ESkidry8448",
                 "title": "NIVUS REEL AD VENTA",
-                "client": "Volkswagen - Repanic",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "ESkidry8448",
@@ -2824,7 +2824,7 @@
         {
                 "fn": "sf-LLvnU6PHf9o",
                 "title": "FLYMOTION AD2 / LUZERNER",
-                "client": "FlyMotion",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "LLvnU6PHf9o",
@@ -2837,7 +2837,7 @@
         {
                 "fn": "sf-Wd1nuuXdHeE",
                 "title": "VP GYM AD3",
-                "client": "VP Gym",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "Wd1nuuXdHeE",
@@ -2850,7 +2850,7 @@
         {
                 "fn": "sf-jSIH-ij9uKM",
                 "title": "REEL 4 PAOLA BERMUDEZ",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "jSIH-ij9uKM",
@@ -2863,7 +2863,7 @@
         {
                 "fn": "sf-sfWL6IY6DmA",
                 "title": "VOLKSWAGEN VENTA INSTITUCIONAL",
-                "client": "Volkswagen",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "sfWL6IY6DmA",
@@ -2876,7 +2876,7 @@
         {
                 "fn": "sf-xdoatmj0dAo",
                 "title": "REEL 00 MAR2026 NIURKYS",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "xdoatmj0dAo",
@@ -2889,7 +2889,7 @@
         {
                 "fn": "sf-dzrmKgI5Cwk",
                 "title": "29V2 CLIPPING MARCOS MAR26",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "short",
                 "kind": "video",
                 "youtube": "dzrmKgI5Cwk",
@@ -2902,7 +2902,7 @@
         {
                 "fn": "lg-8atxqhoMBoE",
                 "title": "IVAN SANCHEZ — CHEAP VSL",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "large",
                 "kind": "video",
                 "youtube": "8atxqhoMBoE",
@@ -2915,7 +2915,7 @@
         {
                 "fn": "lg-TH0KmafgBNU",
                 "title": "VSL LANDER PT.3",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "large",
                 "kind": "video",
                 "youtube": "TH0KmafgBNU",
@@ -2928,7 +2928,7 @@
         {
                 "fn": "lg-ZJRkZSRCKpM",
                 "title": "IVAN SANCHEZ — 0 A 50K",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "large",
                 "kind": "video",
                 "youtube": "ZJRkZSRCKpM",
@@ -2941,7 +2941,7 @@
         {
                 "fn": "lg-_Pjt66EOs_k",
                 "title": "HIGHLIGHTS VSL OXYMORÓN",
-                "client": "Oxymorón-Sol",
+                "client": "",
                 "category": "large",
                 "kind": "video",
                 "youtube": "_Pjt66EOs_k",
@@ -3006,7 +3006,7 @@
         {
                 "fn": "dz-trump",
                 "title": "BREAKING NEWS",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "carousel",
                 "ratio": "4-5",
@@ -3025,7 +3025,7 @@
         {
                 "fn": "dz-cblue",
                 "title": "COACH BLUE",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "carousel",
                 "ratio": "4-5",
@@ -3044,7 +3044,7 @@
         {
                 "fn": "dz-porsche",
                 "title": "PORSCHE",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3057,7 +3057,7 @@
         {
                 "fn": "dz-maxverst",
                 "title": "MAX VERSTAPPEN",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3070,7 +3070,7 @@
         {
                 "fn": "dz-hamilton",
                 "title": "HAMILTON",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3083,7 +3083,7 @@
         {
                 "fn": "dz-marcos",
                 "title": "MARCOS",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3096,7 +3096,7 @@
         {
                 "fn": "dz-dicaprio",
                 "title": "DICAPRIO",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3109,7 +3109,7 @@
         {
                 "fn": "dz-tonymont",
                 "title": "TONY MONTANA",
-                "client": "For 21 Studios clients",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3122,7 +3122,7 @@
         {
                 "fn": "dz-rc",
                 "title": "RC DETAILING",
-                "client": "RC Detailing",
+                "client": "",
                 "category": "design",
                 "kind": "project",
                 "ratio": "4-5",
@@ -3143,10 +3143,10 @@
         let connectIsActive = false;
 
         const sectionConfigs = {
-            focus: { trigger: "#focus-transition-trigger", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/focus-high-res.webp', path: './assets/focus_sequence/frame_' },
-            works: { trigger: "#works-transition-trigger", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/works-high-res.png', path: './assets/works_sequence/frame_' },
-            synthetics: { trigger: "#synthetics-transition-trigger", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/synthetics-high-res.png', path: './assets/synthetics_sequence/frame_' },
-            connect: { trigger: "#connect-transition-trigger", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/connect1.webp', path: './assets/connect_sequence/frame_' }
+            focus: { trigger: "#focus-transition-trigger", section: "#works", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/focus-high-res.webp', path: './assets/focus_sequence/frame_' },
+            works: { trigger: "#works-transition-trigger", section: "#focus", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/works-high-res.png', path: './assets/works_sequence/frame_' },
+            synthetics: { trigger: "#synthetics-transition-trigger", section: "#synthetics", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/synthetics-high-res.png', path: './assets/synthetics_sequence/frame_' },
+            connect: { trigger: "#connect-transition-trigger", section: "#connect", frameCount: 44, images: [], playhead: { frame: 0 }, highRes: new Image(), highResSrc: './assets/connect1.webp', path: './assets/connect_sequence/frame_' }
         };
 
         let _sectionsDone = false;
@@ -3819,7 +3819,7 @@
                 const config = sectionConfigs[key];
 
                 // 2. The Background Sequence
-                gsap.to(config.playhead, {
+                const seqTween = gsap.to(config.playhead, {
                     frame: config.frameCount - 1,
                     ease: "none",
                     scrollTrigger: {
@@ -3848,14 +3848,21 @@
                     }
                 });
 
+                config.seqST = seqTween.scrollTrigger;
+
+                // El still de alta se dibuja SOLO cuando la secuencia ya llego al
+                // ultimo frame. Si no, el scrub y el still se pisan durante ~50vh
+                // y se ve el salto entre frame_044 y la imagen estatica.
+                const seqDone = () => !config.seqST || config.seqST.progress >= 0.999;
+
                 // 3. The Content Section
                 ScrollTrigger.create({
-                    trigger: `#${key}`,
+                    trigger: config.section,
                     start: "top center",
                     end: "bottom center",
                     onToggle: self => {
                         if (self.isActive) {
-                            updateNav(`#${key}`);
+                            updateNav(config.section);
                             gsap.to(nextBtn, { autoAlpha: 1, duration: 0.3 });
                             if (key === 'connect') {
                                 connectIsActive = true;
@@ -3863,7 +3870,7 @@
                                 gsap.to(['#connect2-layer', '#connect3-layer'], { opacity: 1, duration: 0.6 });
                                 window._connectBurst = 1.15;   // dither de entrada
                                 gsap.fromTo('#connect-scan', { opacity: 0.55 }, { opacity: 0, duration: 1.1, ease: 'power2.out' });
-                            } else {
+                            } else if (seqDone()) {
                                 drawImageProp(ctx, config.highRes);
                             }
                         } else {
@@ -3875,7 +3882,7 @@
                     },
                     onUpdate: self => {
                         if (homeIsActive) return;
-                        if (self.isActive) {
+                        if (self.isActive && seqDone()) {
                             drawImageProp(ctx, config.highRes);
                         }
                     }
@@ -4581,8 +4588,8 @@
             <div class="wc-info">
                 <div class="wc-title">${project.title}</div>
                 <div class="wc-sub">
-                    <span>${project.client || '—'}</span>
-                    ${project.tag ? `<i>/</i><span>${project.tag}</span>` : ''}
+                    ${project.client ? `<span>${project.client}</span><i>/</i>` : ''}
+                    ${project.tag ? `<span>${project.tag}</span>` : ''}
                 </div>
                 <div class="wc-rule"></div>
             </div>

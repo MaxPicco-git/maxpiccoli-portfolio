@@ -397,6 +397,46 @@
             .wc-group { margin: 22px 0 4px; }
         }
 
+        /* ── LIGHTBOX DE VIDEO ── */
+        #vid-lb {
+            position: fixed; inset: 0; z-index: 200;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(6, 6, 6, 0.9);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            opacity: 0; pointer-events: none;
+            transition: opacity .35s ease;
+            padding: 5vh 5vw;
+        }
+        #vid-lb.open { opacity: 1; pointer-events: auto; }
+        #vid-lb-frame {
+            position: relative;
+            width: min(92vw, 480px); aspect-ratio: 9 / 16;
+            max-height: 88vh;
+            border: 1px solid rgba(199, 255, 0, .28);
+            background: #000;
+            transform: scale(.96);
+            transition: transform .4s cubic-bezier(.22,1,.36,1);
+        }
+        #vid-lb.open #vid-lb-frame { transform: scale(1); }
+        #vid-lb-frame[data-ratio="16-9"] {
+            width: min(94vw, 1100px); aspect-ratio: 16 / 9;
+        }
+        #vid-lb-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+        #vid-lb-close {
+            position: absolute; top: 18px; right: 20px; z-index: 2;
+            width: 40px; height: 40px;
+            background: rgba(10, 10, 10, .7);
+            border: 1px solid rgba(255, 255, 255, .18);
+            color: rgba(255, 255, 255, .8);
+            font-size: 15px; line-height: 1; cursor: pointer;
+            transition: color .3s ease, border-color .3s ease;
+        }
+        #vid-lb-close:hover { color: #C7FF00; border-color: rgba(199, 255, 0, .6); }
+        @media (max-width: 640px) {
+            #vid-lb { padding: 3vh 3vw; }
+            #vid-lb-close { top: 10px; right: 12px; width: 36px; height: 36px; }
+        }
+
         /* ── NAV MOBILE ── */
         #nav-burger { display: none; }
         #lang-toggle-m { display: none; }
@@ -2432,6 +2472,12 @@
 
     <div id="bg-asset-bar"></div>
 
+    <div id="vid-lb" aria-hidden="true">
+    <button id="vid-lb-close" aria-label="Cerrar">&#10005;</button>
+    <div id="vid-lb-frame"></div>
+</div>
+
+
     <!-- PROJECT DETAIL PANEL -->
     <div id="project-detail">
         <div class="pd-bar">
@@ -4457,6 +4503,7 @@
         loadProjects();
         initLangToggle();
         initMobileNav();
+        initVideoLightbox();
         bpLoader.start();
 
         /* ── intro video buffering drives the SYS counter ── */
@@ -4680,6 +4727,55 @@
             });
         }
 
+        /* ── Lightbox: el video a pantalla grande, con el fondo oscurecido ── */
+        let _lbScrollLocked = false;
+        function openVideoLightbox(item) {
+            const lb = document.getElementById('vid-lb');
+            const fr = document.getElementById('vid-lb-frame');
+            if (!lb || !fr) return;
+
+            const vm = item.dataset.vimeo, yt = item.dataset.yt;
+            const src = vm
+                ? `https://player.vimeo.com/video/${vm}${item.dataset.vhash ? '?h=' + item.dataset.vhash + '&' : '?'}autoplay=1&title=0&byline=0&portrait=0`
+                : `https://www.youtube.com/embed/${yt}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+
+            fr.dataset.ratio = item.dataset.ratio === '16-9' ? '16-9' : '9-16';
+            fr.innerHTML = `<iframe src="${src}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+            lb.classList.add('open');
+            lb.setAttribute('aria-hidden', 'false');
+
+            if (typeof mainLenis !== 'undefined' && mainLenis && !_lbScrollLocked) { mainLenis.stop(); _lbScrollLocked = true; }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoLightbox() {
+            const lb = document.getElementById('vid-lb');
+            const fr = document.getElementById('vid-lb-frame');
+            if (!lb || !lb.classList.contains('open')) return;
+            lb.classList.remove('open');
+            lb.setAttribute('aria-hidden', 'true');
+            setTimeout(() => { if (fr) fr.innerHTML = ''; }, 350);   // corta el audio
+            if (typeof mainLenis !== 'undefined' && mainLenis && _lbScrollLocked) { mainLenis.start(); _lbScrollLocked = false; }
+            document.body.style.overflow = '';
+        }
+
+        function initVideoLightbox() {
+            const lb = document.getElementById('vid-lb');
+            const btn = document.getElementById('vid-lb-close');
+            if (!lb) {   // si el markup todavia no existe, reintentar al cargar
+                document.addEventListener('DOMContentLoaded', initVideoLightbox, { once: true });
+                return;
+            }
+            if (lb.dataset.bound) return;
+            lb.dataset.bound = '1';
+            if (btn) btn.addEventListener('click', closeVideoLightbox);
+            lb.addEventListener('click', e => { if (e.target === lb) closeVideoLightbox(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideoLightbox(); });
+            window.matchMedia('(max-width: 780px)').addEventListener('change', e => {
+                if (!e.matches) closeVideoLightbox();
+            });
+        }
+
         function initWorkDetailClicks() {
             document.querySelectorAll('.work-item').forEach(item => {
                 item.addEventListener('click', () => {
@@ -4695,6 +4791,14 @@
                     }
                     if (item.dataset.kind === 'link' && item.dataset.url) {
                         window.open(item.dataset.url, '_blank', 'noopener');
+                        return;
+                    }
+                    // Lightbox en celular y en pantallas chicas (notebooks, MacBooks).
+                    // Arriba de LB_MAX el video se reproduce dentro de la card, que ya es grande.
+                    const LB_MAX = 1750;   // px de ancho: por debajo, se abre el popup
+                    const pantallaChica = window.innerWidth <= LB_MAX;
+                    if (pantallaChica && item.dataset.kind === 'video' && (item.dataset.vimeo || item.dataset.yt)) {
+                        openVideoLightbox(item);
                         return;
                     }
                     if (item.dataset.kind === 'video' && item.dataset.vimeo) {

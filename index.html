@@ -2666,6 +2666,61 @@
                 "show": true
         },
         {
+                "fn": "ux-lubpoint",
+                "title": "LUBPOINT",
+                "client": "",
+                "category": "uxui",
+                "kind": "link",
+                "ratio": "list",
+                "thumb": "https://lubpoint.pages.dev/assets/header.webp",
+                "url": "https://lubpoint.pages.dev",
+                "tag": "UX/UI",
+                "platform": "",
+                "role": "UX/UI Design",
+                "show": true
+        },
+        {
+                "fn": "ux-hub",
+                "title": "HUB ENTRE RÍOS",
+                "client": "",
+                "category": "uxui",
+                "kind": "link",
+                "ratio": "list",
+                "thumb": "./assets/thumbnails/ux-05-hub.jpg",
+                "url": "https://hub-entre-rios---mvp.piccolimaximo.workers.dev",
+                "tag": "UX/UI",
+                "platform": "",
+                "role": "UX/UI Design",
+                "show": true
+        },
+        {
+                "fn": "sf-KhVvxX7HLmo",
+                "title": "ANCLADO 1",
+                "client": "GAB Academy",
+                "category": "short",
+                "kind": "video",
+                "youtube": "KhVvxX7HLmo",
+                "ratio": "9-16",
+                "thumb": "https://img.youtube.com/vi/KhVvxX7HLmo/maxresdefault.jpg?rev=3",
+                "platform": "YouTube",
+                "tag": "Short-form",
+                "show": true
+        },
+        {
+                "fn": "sf-vimeo1229945550",
+                "title": "ANCLADO 2",
+                "client": "GAB Academy",
+                "category": "short",
+                "kind": "video",
+                "vimeo": "1229945550",
+                "vimeoHash": "e760a0d120",
+                "ratio": "9-16",
+                "thumb": "https://i.vimeocdn.com/video/2204732234-1eef1b16c5d913ed70727fd347aeb1cdf9624ef74b095a1c10360610c6ebe24c-d_1280?region=us",
+                "platform": "Vimeo",
+                "tag": "Short-form",
+                "show": true
+        },
+        {
                 "fn": "sf-WMVyh56Y7Fg",
                 "title": "NIURKYS CREDITO AD14",
                 "client": "",
@@ -4532,6 +4587,7 @@
             container.innerHTML = projects.map((project, index) => {
                 const cats  = Array.isArray(project.category) ? project.category : [project.category];
                 const isVid = project.kind === 'video';
+                const vm    = project.vimeo || '';
                 const yt    = project.youtube || '';
                 const thumb = project.thumb || project.image || '';
                 const REV   = 3;   // subilo cuando cambies miniaturas en YouTube
@@ -4572,6 +4628,7 @@
                 return head + `
         <div data-id="${project.fn}" data-yt="${yt}" data-kind="${project.kind || 'project'}"
              data-categories="${cats.join(',')}" data-ratio="${project.ratio || '9-16'}"
+             data-vimeo="${project.vimeo || ''}" data-vhash="${project.vimeoHash || ''}"
              class="work-item wc" style="--d:${(index % 20) * 0.03}s"
              ${project.slides ? `data-slides='${JSON.stringify(project.slides)}'` : ''}>
             <div class="wc-top">
@@ -4585,6 +4642,7 @@
                 ${project.slides ? `<div class="wc-dots">${project.slides.map((_, k) => `<i class="${k === 0 ? 'on' : ''}"></i>`).join('')}</div>` : ''}
             </div>
             ${yt ? `<a class="wc-ext" href="https://www.youtube.com/watch?v=${yt}" target="_blank" rel="noopener">&#8599;</a>` : ''}
+            ${vm ? `<a class="wc-ext" href="https://vimeo.com/${vm}" target="_blank" rel="noopener">&#8599;</a>` : ''}
             <div class="wc-info">
                 <div class="wc-title">${project.title}</div>
                 <div class="wc-sub">
@@ -4637,6 +4695,15 @@
                     }
                     if (item.dataset.kind === 'link' && item.dataset.url) {
                         window.open(item.dataset.url, '_blank', 'noopener');
+                        return;
+                    }
+                    if (item.dataset.kind === 'video' && item.dataset.vimeo) {
+                        if (item.querySelector('iframe')) return;
+                        document.querySelectorAll('.wc-media iframe').forEach(f => f.closest('.work-item').click());
+                        const h = item.dataset.vhash ? '?h=' + item.dataset.vhash + '&' : '?';
+                        item.querySelector('.wc-media').innerHTML =
+                            `<iframe src="https://player.vimeo.com/video/${item.dataset.vimeo}${h}autoplay=1&title=0&byline=0&portrait=0"
+                                     allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
                         return;
                     }
                     if (item.dataset.kind === 'video' && item.dataset.yt) {

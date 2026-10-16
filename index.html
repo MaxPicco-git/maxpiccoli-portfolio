@@ -11,8 +11,17 @@
     <meta property="og:title" content="Máximo Piccoli · Ximo" />
     <meta property="og:description"
         content="Not just a designer. A creative partner." />
-    <meta property="og:image" content="./assets/works-high-res.png" />
+    <!-- og:image tiene que ser URL ABSOLUTA: WhatsApp, LinkedIn y Twitter
+         no resuelven rutas relativas y la preview sale sin imagen -->
+    <meta property="og:image" content="https://maximopiccoli.com/assets/works-high-res.png" />
+    <meta property="og:image:alt" content="Máximo Piccoli — creative partner" />
+    <meta property="og:url" content="https://maximopiccoli.com/" />
+    <meta property="og:site_name" content="Máximo Piccoli" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_AR" />
+    <link rel="canonical" href="https://maximopiccoli.com/" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://maximopiccoli.com/assets/works-high-res.png" />
     <link rel="icon" type="image/png" href="./favicon/favicon.png" />
     <link rel="apple-touch-icon" href="./favicon/favicon.png" />
     <meta name="theme-color" content="#0A0A0A" />
@@ -51,6 +60,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <!-- ── RED DE SEGURIDAD DE LIBRERIAS ──────────────────────────────
+         Si cdnjs o unpkg no responden (red corporativa, bloqueador,
+         caida del CDN), el script principal moria en el primer gsap.*
+         y la pagina quedaba clavada en el loader, en negro, para siempre.
+         Primero reintentamos desde un CDN alternativo de forma sincrona;
+         si tampoco entra, mas abajo se degrada a pagina estatica legible. -->
+    <script>
+        (function () {
+            var falt = [];
+            if (typeof window.gsap === 'undefined')
+                falt.push('https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js');
+            if (typeof window.ScrollTrigger === 'undefined')
+                falt.push('https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js');
+            if (typeof window.Lenis === 'undefined')
+                falt.push('https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js');
+            falt.forEach(function (u) {
+                document.write('<script src="' + u + '"><\/script>');
+            });
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -58,6 +87,20 @@
         rel="stylesheet">
 
     <style>
+        /* ── normalizacion de headings ──────────────────────────────
+           Es exactamente lo que ya hace el preflight de Tailwind, escrito
+           aca de forma explicita: asi los titulos miden igual aunque el
+           CDN de Tailwind no cargue, y la jerarquia h1/h2/h3 (que es la
+           que leen Google y los lectores de pantalla) se puede ordenar
+           sin que los margenes por defecto del navegador muevan nada.
+           Todos los titulos del sitio toman su tamaño de .type-*, que al
+           ser clase gana sobre esta regla. */
+        h1, h2, h3, h4, h5, h6 {
+            font-size: inherit;
+            font-weight: inherit;
+            margin: 0;
+        }
+
         /* ── anula el CSS heredado de lista sobre las cards ── */
         .wc.work-item {
             max-height: none !important;
@@ -2226,9 +2269,9 @@
 
             <div class="z-10 w-full  mb-16">
                 <span class="type-section-label block mb-8">Works</span>
-                <h1 class="type-display mb-8">
+                <h2 class="type-display mb-8">
                     <span class="block overflow-hidden"><span class="line-internal block">Featured Works</span></span>
-                </h1>
+                </h2>
                 <p class="type-body focus-body-copy">
                     Ads that stop the scroll. Interfaces people actually use — for founders, studios and
                     science-led brands that can’t afford to look amateur. Identities built to survive contact
@@ -2258,9 +2301,9 @@
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="short">Short-form</button>
                         <button class="filter-btn" data-filter="large">Large</button>
-                        <button class="filter-btn" data-filter="art">Art-Work</button>
                         <button class="filter-btn" data-filter="uxui">UX/UI</button>
                         <button class="filter-btn" data-filter="design">Designs</button>
+                        <button class="filter-btn" data-filter="art">Art-Work</button>
                         <button class="filter-btn is-soon" data-filter="motion"><span>Motion GFX</span> <em>soon</em></button>
                     </div>
                     <span id="filter-count" class="type-caption opacity-40 ml-auto"></span>
@@ -2277,14 +2320,14 @@
             <div class="z-10 w-full ">
                 <span class="type-section-label block mb-8">Philosophy</span>
 
-                <h1 class="type-display mb-16">
+                <h2 class="type-display mb-16">
                     <span class="block overflow-hidden"><span class="line-internal block">Everyone is fast
                             now.</span></span>
                     <span class="block overflow-hidden"><span class="line-internal block">Almost no one is
                             deliberate.</span></span>
                     <span class="block overflow-hidden"><span class="line-internal block">That gap is where I
                             work.</span></span>
-                </h1>
+                </h2>
 
                 <div class="block overflow-hidden">
                     <div class="line-internal grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -2395,9 +2438,9 @@
             <div class="z-10 w-full ">
                 <span class="type-section-label block mb-8">Motion</span>
 
-                <h1 class="type-display mb-16">
+                <h2 class="type-display mb-16">
                     <span class="block overflow-hidden"><span class="line-internal block" id="synth-title">Fast Is a System, Not a Shortcut</span></span>
-                </h1>
+                </h2>
 
                 <div class="block overflow-hidden">
                     <div class="line-internal grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -2437,10 +2480,10 @@
         <section id="connect" class="flex flex-col items-center justify-center text-center px-6 md:px-24 section-fade-bg" data-bg-opacity="0.5">
 
             <div class="z-10">
-                <h1 class="type-hero" id="connect-title">
+                <h2 class="type-hero" id="connect-title">
                     <span class="block overflow-hidden"><span class="line-internal block">The right brief</span></span>
                     <span class="block overflow-hidden"><span class="line-internal block">finds the right person</span></span>
-                </h1>
+                </h2>
 
                 <div class="md:col-span-7 type-body focus-body-copy">
                     <p>
@@ -2629,6 +2672,8 @@
                 else el.innerHTML = o.html;
             });
             if (typeof retranslateKaraoke === 'function') retranslateKaraoke(lang);
+            if (typeof retranslateTitles === 'function') retranslateTitles(lang);
+            if (typeof retranslateOm === 'function') retranslateOm(lang);
             document.querySelectorAll('#lang-toggle span[data-lang], #lang-toggle-m span[data-lang]').forEach(sp => {
                 sp.classList.toggle('on', sp.dataset.lang === lang);
             });
@@ -3100,6 +3145,19 @@
                 "youtube": "pSJkmPgJEz4",
                 "ratio": "16-9",
                 "thumb": "https://img.youtube.com/vi/pSJkmPgJEz4/hqdefault.jpg",
+                "platform": "YouTube",
+                "tag": "Art-Work",
+                "show": true
+        },
+        {
+                "fn": "aw-lFPN4wx01h4",
+                "title": "ART-WORK 05",
+                "client": "Personal",
+                "category": "art",
+                "kind": "video",
+                "youtube": "lFPN4wx01h4",
+                "ratio": "16-9",
+                "thumb": "https://img.youtube.com/vi/lFPN4wx01h4/maxresdefault.jpg?rev=3",
                 "platform": "YouTube",
                 "tag": "Art-Work",
                 "show": true
@@ -3835,8 +3893,14 @@
             requestAnimationFrame(frame);
         }
 
+        /* Titulos partidos en palabras: guardo el HTML original ANTES de partir,
+           asi el toggle de idioma puede restaurarlo, traducirlo y volver a partir.
+           (mismo patron que los parrafos karaoke) */
+        const WU_LINES = [];
+
         /* split a heading's text nodes into word units, preserving <br> */
         function splitWords(el) {
+            if (!WU_LINES.some(r => r.el === el)) WU_LINES.push({ el, html: el.innerHTML });
             const nodes = Array.from(el.childNodes);
             el.innerHTML = '';
             nodes.forEach(node => {
@@ -4069,6 +4133,9 @@
            next card slides up over the last — three sheets
            stacking. Mobile falls back to stacked cards.
         ═══════════════════════════════════════════════ */
+        const OM_ORIG = new Map();   // .om-desc -> HTML antes del split
+        let _omMM = null;            // matchMedia activo, para revertir al cambiar idioma
+
         function initOperatingModel() {
             const pin = document.getElementById('om-pin');
             if (!pin) return;
@@ -4079,12 +4146,15 @@
             const omDim = document.getElementById('page-bg-overlay');
 
             // split each description into karaoke word units (once)
+            // el HTML pre-split se guarda una sola vez, para el toggle de idioma
             document.querySelectorAll('#om-pin .om-desc').forEach(d => {
+                if (!OM_ORIG.has(d)) OM_ORIG.set(d, d.innerHTML);
                 const ws = d.textContent.trim().split(/\s+/);
                 d.innerHTML = ws.map(w => '<span class="om-w">' + w + '</span>').join(' ');
             });
 
             const mm = gsap.matchMedia();
+            _omMM = mm;
 
             mm.add('(min-width: 769px)', () => {
                 gsap.set(cards.slice(1), { yPercent: 130 });
@@ -4313,7 +4383,7 @@
         ═══════════════════════════════════════════════ */
         const KARAOKE_SEL = '#focus .focus-body-copy p, #connect .type-body p';
         const KARAOKE_ORIG = new WeakMap();
-        let _kwMM = null, _kwTweens = [];
+        let _kwMM = null, _kwTweens = [], _kwBtnST = null;
 
         function karaokeKey(html) {
             const d = document.createElement('div');
@@ -4334,8 +4404,67 @@
             // matar la animacion vieja y rearmarla sobre los spans nuevos
             _kwTweens.forEach(t => { if (t.scrollTrigger) t.scrollTrigger.kill(); t.kill(); });
             _kwTweens = [];
+            if (_kwBtnST) { _kwBtnST.kill(); _kwBtnST = null; }
             if (_kwMM) { _kwMM.revert(); _kwMM = null; }
             initKaraokeBlocks(true);
+            if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        }
+
+        /* Igual que el karaoke, pero para los TITULOS partidos en .w-unit
+           (hero, Featured Works, Essentials, Synthetics, Connect).
+           Respeta el estado actual: si el titulo ya se revelo, los spans
+           nuevos quedan visibles; si todavia no, vuelven a quedar armados
+           para revelarse al llegar con el scroll. */
+        let _wuTriggers = [];
+
+        function retranslateTitles(lang) {
+            // matar los triggers del toggle anterior para que no se acumulen
+            _wuTriggers.forEach(t => t.kill());
+            _wuTriggers = [];
+
+            WU_LINES.forEach(rec => {
+                const line = rec.el;
+                if (!line || !line.isConnected) return;
+
+                const prev = line.querySelectorAll('.w-unit');
+                const yaVisible = prev.length
+                    ? parseFloat(getComputedStyle(prev[0]).opacity) > 0.9
+                    : true;
+
+                const key = karaokeKey(rec.html);
+                line.innerHTML = (lang === 'es' && ES_DICT[key]) ? ES_DICT[key] : rec.html;
+
+                const words = splitWords(line);
+                if (!words.length) return;
+
+                if (yaVisible) {
+                    gsap.set(words, { opacity: 1, y: 0, filter: 'blur(0px)' });
+                } else {
+                    gsap.set(words, { opacity: 0, y: 24, filter: 'blur(8px)' });
+                    _wuTriggers.push(ScrollTrigger.create({
+                        trigger: line, start: 'top 82%', once: true,
+                        onEnter: () => gsap.to(words, {
+                            opacity: 1, y: 0, filter: 'blur(0px)',
+                            duration: 1.35, stagger: 0.09, ease: 'power3.out'
+                        })
+                    }));
+                }
+            });
+        }
+
+        /* Y para las descripciones del Operating Model, partidas en .om-w.
+           Restauro el texto, revierto el matchMedia (que ya limpia props
+           con clearProps) y vuelvo a construir: mismo camino que el primer
+           arranque, asi la animacion queda igual. */
+        function retranslateOm(lang) {
+            if (!OM_ORIG.size) return;
+            if (_omMM) { _omMM.revert(); _omMM = null; }
+            OM_ORIG.forEach((orig, d) => {
+                if (!d.isConnected) return;
+                const key = karaokeKey(orig);
+                d.innerHTML = (lang === 'es' && ES_DICT[key]) ? ES_DICT[key] : orig;
+            });
+            initOperatingModel();
             if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
         }
 
@@ -4388,13 +4517,20 @@
             // the button reveals on its own — always reachable,
             // arrives while the copy is still filling in
             if (cBtn) {
-                gsap.set(cBtn, { autoAlpha: 0, y: 14 });
-                ScrollTrigger.create({
-                    trigger: cBody || cBtn,
-                    start: 'top 72%',
-                    once: true,
-                    onEnter: () => gsap.to(cBtn, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' })
-                });
+                // si ya se habia revelado, no lo volvemos a esconder al rearmar
+                const yaVisible = isRebuild && parseFloat(getComputedStyle(cBtn).opacity) > 0.9;
+                if (yaVisible) {
+                    gsap.set(cBtn, { autoAlpha: 1, y: 0 });
+                } else {
+                    gsap.set(cBtn, { autoAlpha: 0, y: 14 });
+                    // se guarda para que retranslateKaraoke lo mate y no se acumule
+                    _kwBtnST = ScrollTrigger.create({
+                        trigger: cBody || cBtn,
+                        start: 'top 72%',
+                        once: true,
+                        onEnter: () => gsap.to(cBtn, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' })
+                    });
+                }
             }
         }
 
@@ -5268,6 +5404,47 @@
         }
 
         initPipelineSection();
+
+        /* bandera de "arranco todo bien" — la lee la red de seguridad de abajo */
+        window.__mpReady = true;
+    </script>
+
+    <!-- ── RED DE SEGURIDAD DE ARRANQUE ───────────────────────────────
+         Si el script principal se corto por cualquier motivo (una libreria
+         que no entro, un asset que reventó, una excepcion inesperada), la
+         pagina se quedaba en negro: #intro-wrapper tapa todo y los titulos
+         tienen opacity:0 esperando a GSAP. Esta red detecta que el arranque
+         no termino y muestra la pagina igual, sin animaciones.
+         En una carga normal __mpReady es true y esto no hace absolutamente
+         nada, asi que no afecta la visualizacion. -->
+    <script>
+        (function () {
+            function rescatar() {
+                if (window.__mpReady) return;            // arranco bien: no tocamos nada
+                if (document.documentElement.dataset.rescued) return;
+                document.documentElement.dataset.rescued = '1';
+
+                var st = document.createElement('style');
+                st.textContent =
+                    '#intro-wrapper,#bp-loader,#boot-log,#boot-pct,#coord-tag,#page-bg-overlay,' +
+                    '#work-bg-overlay,#cursor-dot,#cursor-ring{display:none!important}' +
+                    // #main-content arranca con visibility:hidden inline hasta que
+                    // la intro lo revela; !important gana sobre el estilo inline
+                    '#main-content{opacity:1!important;visibility:visible!important}' +
+                    '.line-internal{opacity:1!important;transform:none!important}' +
+                    '.w-unit{opacity:1!important;transform:none!important;filter:none!important}' +
+                    '.kw,.om-w{opacity:1!important}' +
+                    '.pd-reveal,.oc-desc{opacity:1!important;transform:none!important}' +
+                    '.om-card{position:relative!important;transform:none!important;opacity:1!important}' +
+                    '#om-pin{height:auto!important}' +
+                    'body{overflow-y:auto!important}';
+                document.head.appendChild(st);
+                document.body.style.overflow = '';
+            }
+            // margen generoso: en conexiones lentas el arranque normal tarda
+            setTimeout(rescatar, 10000);
+            window.addEventListener('error', function () { setTimeout(rescatar, 2500); });
+        })();
     </script>
 </body>
 
